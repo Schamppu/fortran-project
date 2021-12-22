@@ -19,7 +19,7 @@ module utils
             do i = 1, popSize
                 pop = popArray(i)
                 if (pop%id > 0) then
-                    ! print "(a4, i3, a2, i3, a2, i3, a10, i3)", "ID:", pop%id, ", X:", pop%x, ", Y:", pop%y, ", STATUS: ", pop%health
+                    print "(a4, i3, a5, i3, a5, i3, a10, i3)", "ID:", pop%id, ", X:", pop%x, ", Y:", pop%y, ", STATUS: ", pop%health
                     ! print "(i4, i4, i4, i4)", pop%id, pop%x, pop%y, pop%health
                     if (pop%health == 0) then
                         normal = normal+1
@@ -37,6 +37,7 @@ module utils
             immunePrc = immune / popSize
 
             !print "(a8, i3, a8, i3, a8, i3)", "Normal: ", normal, ", Sick: ", sick, ", Immune: ", immune
+            print *, "Normal, Sick, Immune"
             print "(i4, a1, i4, a1, i4)", normal, ",", sick, ",", immune
             write(1, "(i4, a1, i4, a1, i4)") normal, ",", sick, ",", immune
         end subroutine printAllPops

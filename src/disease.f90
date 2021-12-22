@@ -55,7 +55,6 @@ program disease
     read(*,*)
     print *, "Simulation begins!"
     print *, "----------"
-    print *, "Normal, Sick, Immune"
 
     ! Alustetaan person-tyyppej‰ sis‰lt‰v‰ popArray
     popArray = allocateNewPopArray(populationCount)
@@ -75,7 +74,6 @@ program disease
         open(1, file = "output.csv", status = "new")
         write (1, *) "Normal, Sick, Immune"
         do time = 1, timeMax
-            ! print "(a6,i3)", "#Step", time
             call moveAllPops(populationCount, gridSize, healingPrc, illnessPrc)
             call printAllPops(populationCount, popArray)
             !print *, "----------"
@@ -85,7 +83,7 @@ program disease
 
     ! K‰yd‰‰n silmukassa l‰pi aikaa ja kirjoitetaan samalla output.csv tiedostoon
     do time = 1, timeMax
-        ! print "(a6,i3)", "#Step", time
+        print "(a7,i3)", "#Step: ", time
         call moveAllPops(populationCount, gridSize, healingPrc, illnessPrc)
         call printAllPops(populationCount, popArray)
         !print *, "----------"
